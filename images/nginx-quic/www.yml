@@ -1,0 +1,48 @@
+version: "3"
+services:
+  ######
+  gateway-www:
+    image: wacdis/nginx-quic:latest
+    container_name: gateway-www
+    volumes:
+      - /code/__docker/letsencrypt/cert:/cert
+      - ./www:/code
+      - ./www.conf:/etc/nginx/nginx.conf
+    networks:
+      net:
+    ports:
+      - "80:80"
+      - "443:443/tcp"
+      - "443:443/udp"
+  ######
+  gateway-php:
+    image: wacdis/php8-fpm:2
+    container_name: gateway-php
+    volumes:
+      - ./www:/code
+    networks:
+      net:
+    ports:
+      - "9000"
+  ######
+  gateway-mysql:
+    image: mysql:latest
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      net:
+    ports:
+      - '3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: Shakira10
+  ######
+  gateway-adminer:
+    image: adminer:4.7.7-standalone
+    networks:
+      net:
+    ports:
+      - '8080:8080'
+  ######
+networks:
+  net:
+    name: net 

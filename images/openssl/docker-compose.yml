@@ -1,0 +1,12 @@
+version: "3"
+services:
+  openssl:
+    image: alpine
+    volumes:
+      - ./cert:/cert
+      - ./script:/root/script
+    command: /bin/ash -c "apk add openssl && 
+      cd /root && 
+      chmod +x ./script && 
+      ./script && 
+      rm -rf ./domains.ext"

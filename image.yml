@@ -1,0 +1,7 @@
+version: "3"
+services:
+  image-gulp:
+    image: wacdis/gulp
+    build:
+      context: .
+      dockerfile: ./images/gulp/Dockerfile
