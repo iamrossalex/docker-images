@@ -1,0 +1,10 @@
+version: "3"
+services:
+  gulp:
+    image: alpine
+    container_name: gulp-sync
+    volumes:
+      - ./include:/project
+    environment:
+      - REMOTE_SERVER_URL=https://dnpi.es/html
+    command: ["tail", "-f", "/dev/null"]

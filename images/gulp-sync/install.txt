@@ -1,0 +1,6 @@
+apk update && \
+    apk upgrade && \
+    apk add openssh openrc nodejs npm && \
+    npm install -g gulp-cli && \
+    cd /project && \
+	npm install --save-dev autoprefixer browser-sync del sass uglify-js yargs gulp gulp-autoprefixer gulp-cssnano gulp-file-include gulp-plumber gulp-rename gulp-sass gulp-uglify 
