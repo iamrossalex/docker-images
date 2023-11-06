@@ -30,7 +30,6 @@ var path = {
 };
 
 function htmlTask() {
-	console.log("Folder: " + folder + path.src.html);
 	return src(folder + path.src.html)
 		.pipe(plumber())
 		.pipe(fileInclude({prefix: '// @@', basepath: '@file'}))
