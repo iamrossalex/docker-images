@@ -26,4 +26,4 @@ EXPOSE 8443
 
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
-# docker build -t wacdis/nginx-quic ./nginx-quic
+# docker build --no-cache -t wacdis/nginx-quic .
