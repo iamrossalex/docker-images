@@ -4,7 +4,7 @@ services:
     image: alpine
     container_name: gulp-sync
     volumes:
-      - ./include:/project
+      - ./html:/project/html
     environment:
-      - REMOTE_SERVER_URL=https://dnpi.es/html
+      - REMOTE_SERVER_URL=https://wacdis.com/html
     command: ["tail", "-f", "/dev/null"]
